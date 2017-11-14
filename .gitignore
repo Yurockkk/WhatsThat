@@ -1,0 +1,10 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+Pods/
+Podfile.lock
+DerivedData
+xcuserdata/
+build/
