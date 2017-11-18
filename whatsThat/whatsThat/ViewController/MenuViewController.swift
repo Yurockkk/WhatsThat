@@ -9,10 +9,29 @@
 import UIKit
 
 class MenuViewController: UIViewController {
+    let imagePicker = UIImagePickerController()
 
+    @IBAction func cameraBtn(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            print("we have permission to camera")
+            
+            imagePicker.modalPresentationStyle = .popover
+            imagePicker.popoverPresentationController?.delegate = self
+            imagePicker.popoverPresentationController?.sourceView = view
+            view.alpha = 0.5
+            present(imagePicker, animated: true, completion: nil)
+            
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //image picker
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,4 +51,29 @@ class MenuViewController: UIViewController {
     }
     */
 
+}
+
+extension MenuViewController : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+        view.alpha = 1;
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let editImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+            print("we got editImage")
+        }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            print("we got originalImage")
+
+        }
+        picker.dismiss(animated: true)
+        view.alpha = 1;
+    }
+}
+
+extension MenuViewController : UIPopoverPresentationControllerDelegate {
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        view.alpha = 1;
+    }
 }
