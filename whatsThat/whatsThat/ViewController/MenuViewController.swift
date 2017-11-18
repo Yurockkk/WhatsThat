@@ -11,18 +11,32 @@ import UIKit
 class MenuViewController: UIViewController {
     let imagePicker = UIImagePickerController()
 
+    @IBOutlet weak var cameraBtn: UIButton!
     @IBAction func cameraBtn(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            print("we have permission to camera")
-            
-            imagePicker.modalPresentationStyle = .popover
-            imagePicker.popoverPresentationController?.delegate = self
-            imagePicker.popoverPresentationController?.sourceView = view
-            view.alpha = 0.5
-            present(imagePicker, animated: true, completion: nil)
-            
-            
-        }
+//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+//            print("we have permission to camera")
+//
+//            imagePicker.modalPresentationStyle = .popover
+//            imagePicker.popoverPresentationController?.delegate = self
+//            imagePicker.popoverPresentationController?.sourceView = view
+//            view.alpha = 0.5
+//            present(imagePicker, animated: true, completion: nil)
+//
+//
+//        }
+//        self.cameraBtn.isUserInteractionEnabled = true
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallary()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +64,29 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func openCamera()
+    {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallary()
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 
 }
 

@@ -42,6 +42,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cKn-4y-CEE"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraBtn" destination="MUj-LG-iNn" id="fOj-yO-dFQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkJ-iP-vHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
