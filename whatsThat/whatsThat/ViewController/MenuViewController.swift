@@ -91,7 +91,7 @@ extension MenuViewController : UINavigationControllerDelegate, UIImagePickerCont
             print("we got editImage")
             
             //perform segue to PhotoIdentificationViewController
-          
+            self.performSegue(withIdentifier: "PhotoIdentificationViewController", sender: self)
 
         }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             print("we got originalImage")
