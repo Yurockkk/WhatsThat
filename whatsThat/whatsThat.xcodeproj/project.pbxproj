@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
+		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
 		99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA27901FBA79E0000D5B9A /* AppDelegate.swift */; };
 		99EA27961FBA79E0000D5B9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EA27941FBA79E0000D5B9A /* Main.storyboard */; };
 		99EA27981FBA79E0000D5B9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA27971FBA79E0000D5B9A /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		99EA278D1FBA79E0000D5B9A /* whatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA27901FBA79E0000D5B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99EA27951FBA79E0000D5B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */,
+				99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
+				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
 				99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

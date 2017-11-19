@@ -13,18 +13,7 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var cameraBtn: UIButton!
     @IBAction func cameraBtn(_ sender: UIButton) {
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-//            print("we have permission to camera")
-//
-//            imagePicker.modalPresentationStyle = .popover
-//            imagePicker.popoverPresentationController?.delegate = self
-//            imagePicker.popoverPresentationController?.sourceView = view
-//            view.alpha = 0.5
-//            present(imagePicker, animated: true, completion: nil)
-//
-//
-//        }
-//        self.cameraBtn.isUserInteractionEnabled = true
+
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
@@ -100,6 +89,10 @@ extension MenuViewController : UINavigationControllerDelegate, UIImagePickerCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editImage = info[UIImagePickerControllerEditedImage] as? UIImage{
             print("we got editImage")
+            
+            //perform segue to PhotoIdentificationViewController
+          
+
         }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             print("we got originalImage")
 
