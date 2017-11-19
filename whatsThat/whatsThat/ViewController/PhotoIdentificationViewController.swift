@@ -9,9 +9,16 @@
 import UIKit
 
 class PhotoIdentificationViewController: UIViewController {
+    var selectedImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if selectedImage != nil{
+            print("we got selected image!")
+        }else{
+            print("we didn't get selected image!")
+
+        }
 
         // Do any additional setup after loading the view.
     }

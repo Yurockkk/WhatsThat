@@ -10,6 +10,8 @@ import UIKit
 
 class MenuViewController: UIViewController {
     let imagePicker = UIImagePickerController()
+    var image: UIImage?
+    
 
     @IBOutlet weak var cameraBtn: UIButton!
     @IBAction func cameraBtn(_ sender: UIButton) {
@@ -76,6 +78,15 @@ class MenuViewController: UIViewController {
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PhotoIdentificationSegue" {
+            print("in prepare")
+            let destinationViewController = segue.destination as? PhotoIdentificationViewController
+
+            destinationViewController?.selectedImage = image
+        }
+    }
 
 }
 
@@ -89,9 +100,9 @@ extension MenuViewController : UINavigationControllerDelegate, UIImagePickerCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editImage = info[UIImagePickerControllerEditedImage] as? UIImage{
             print("we got editImage")
-            
+            image = editImage
             //perform segue to PhotoIdentificationViewController
-            self.performSegue(withIdentifier: "PhotoIdentificationViewController", sender: self)
+            self.performSegue(withIdentifier: "PhotoIdentificationSegue", sender: self)
 
         }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             print("we got originalImage")

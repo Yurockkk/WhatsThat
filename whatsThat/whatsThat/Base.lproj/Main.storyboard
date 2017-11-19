@@ -61,7 +61,7 @@
                     <navigationItem key="navigationItem" id="6dW-Qq-uMZ"/>
                     <connections>
                         <outlet property="cameraBtn" destination="MUj-LG-iNn" id="fOj-yO-dFQ"/>
-                        <segue destination="d2W-fG-7db" kind="show" identifier="PhotoIdentificationViewController" id="Mo1-iK-40u"/>
+                        <segue destination="d2W-fG-7db" kind="show" identifier="PhotoIdentificationSegue" id="Mo1-iK-40u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkJ-iP-vHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
