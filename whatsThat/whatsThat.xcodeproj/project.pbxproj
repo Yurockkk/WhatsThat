@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
 		99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA27901FBA79E0000D5B9A /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		99EA278D1FBA79E0000D5B9A /* whatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		999085561FC38E9F00D83AAD /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		99C9B2D91FBCF5E900286FE6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 		99EA278F1FBA79E0000D5B9A /* whatsThat */ = {
 			isa = PBXGroup;
 			children = (
+				999085561FC38E9F00D83AAD /* utils */,
 				99C9B2D91FBCF5E900286FE6 /* ViewController */,
 				99EA27901FBA79E0000D5B9A /* AppDelegate.swift */,
 				99EA27941FBA79E0000D5B9A /* Main.storyboard */,
@@ -148,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
+				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
 				99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */,
 			);

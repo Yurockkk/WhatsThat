@@ -17,6 +17,7 @@ class PhotoIdentificationViewController: UIViewController {
         if selectedImage != nil{
             print("we got selected image!")
             imageView.image = selectedImage
+        GoogleVisionAPIManager.sharedInstance.fetchIdentificationList()
         }else{
             print("we didn't get selected image!")
 
