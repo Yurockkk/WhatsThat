@@ -76,17 +76,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PhotoIdentificationViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrp-rz-yIz">
-                                <rect key="frame" x="59" y="323" width="256" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FJ7-Eh-kg1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-q4-zlS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GNR-4W-LBs">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KlD-9u-yhK" firstAttribute="bottom" secondItem="FJ7-Eh-kg1" secondAttribute="bottom" id="KKx-wp-bN4"/>
+                            <constraint firstItem="FJ7-Eh-kg1" firstAttribute="leading" secondItem="KlD-9u-yhK" secondAttribute="leading" id="Ngb-cF-GEh"/>
+                            <constraint firstItem="KlD-9u-yhK" firstAttribute="trailing" secondItem="FJ7-Eh-kg1" secondAttribute="trailing" id="w7X-Tb-SZr"/>
+                            <constraint firstItem="FJ7-Eh-kg1" firstAttribute="top" secondItem="KlD-9u-yhK" secondAttribute="top" id="wTg-cE-c5H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KlD-9u-yhK"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZY0-q4-zlS" id="VbW-M4-b7S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FH2-7X-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

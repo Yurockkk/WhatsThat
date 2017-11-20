@@ -10,11 +10,13 @@ import UIKit
 
 class PhotoIdentificationViewController: UIViewController {
     var selectedImage: UIImage?
-
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if selectedImage != nil{
             print("we got selected image!")
+            imageView.image = selectedImage
         }else{
             print("we didn't get selected image!")
 
