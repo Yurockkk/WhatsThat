@@ -8,11 +8,18 @@
 
 import Foundation
 
+protocol GoogleVisionAPIDelegate {
+    func resultFound(results: [String])
+    func resultNotFound()
+}
+
 class GoogleVisionAPIManager{
+    var delegate: GoogleVisionAPIDelegate?
     static let sharedInstance = GoogleVisionAPIManager()
 
     func fetchIdentificationList(){
         print("fetching...")
+        delegate?.resultFound(results: ["cat","hard-coded","Dog"])
     }
 }
 

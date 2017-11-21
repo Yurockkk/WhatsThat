@@ -10,6 +10,8 @@ import UIKit
 import MBProgressHUD
 
 class PhotoIdentificationViewController: UIViewController {
+    var results = [String]()
+
     var selectedImage: UIImage?
     @IBOutlet weak var imageView: UIImageView!
     
@@ -18,7 +20,8 @@ class PhotoIdentificationViewController: UIViewController {
         if selectedImage != nil{
             print("we got selected image!")
             imageView.image = selectedImage
-        GoogleVisionAPIManager.sharedInstance.fetchIdentificationList()
+            GoogleVisionAPIManager.sharedInstance.delegate = self
+            GoogleVisionAPIManager.sharedInstance.fetchIdentificationList()
         }else{
             print("we didn't get selected image!")
 
@@ -48,4 +51,24 @@ class PhotoIdentificationViewController: UIViewController {
     }
     */
 
+}
+
+//adhere to the NearbyGymDelegate protocol
+extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
+    func resultFound(results: [String]) {
+        self.results = results
+        print("found results from Google Vision API")
+        print("\(results)")
+
+        //update tableview data on the main (UI) thread
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            //self.tableView.reloadData()
+        }
+    }
+    
+    func resultNotFound() {
+        print("no results :(")
+
+    }
 }
