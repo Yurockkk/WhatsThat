@@ -21,7 +21,12 @@ class PhotoIdentificationViewController: UIViewController {
             print("we got selected image!")
             imageView.image = selectedImage
             GoogleVisionAPIManager.sharedInstance.delegate = self
-            GoogleVisionAPIManager.sharedInstance.fetchIdentificationList()
+            guard let imageData = UIImagePNGRepresentation(selectedImage!) else{
+                print("converting to base64 went wrong")
+                return
+            }
+            let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+            GoogleVisionAPIManager.sharedInstance.fetchIdentificationList(baseString: strBase64)
         }else{
             print("we didn't get selected image!")
 

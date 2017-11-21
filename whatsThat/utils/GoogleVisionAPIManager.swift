@@ -17,8 +17,25 @@ class GoogleVisionAPIManager{
     var delegate: GoogleVisionAPIDelegate?
     static let sharedInstance = GoogleVisionAPIManager()
 
-    func fetchIdentificationList(){
+    func fetchIdentificationList(baseString: String){
         print("fetching...")
+        var urlComponents = URLComponents(string: "https://vision.googleapis.com/v1/images:annotate")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "key", value: "AIzaSyChQzplbC-Le2qLiB9DCc4n2oIdi97Usvk")
+        ]
+        
+//        let jsonBody: [String: Any] = [
+//            "requests": [
+//                {
+//                    "image": {
+//
+//                    },
+//                    "features": {
+//
+//                    }
+//                }
+//                ]
+//            ]
         delegate?.resultFound(results: ["cat","hard-coded","Dog"])
     }
 }
