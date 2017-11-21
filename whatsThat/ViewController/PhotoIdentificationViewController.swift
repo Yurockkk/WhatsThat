@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class PhotoIdentificationViewController: UIViewController {
     var selectedImage: UIImage?
@@ -22,6 +23,7 @@ class PhotoIdentificationViewController: UIViewController {
             print("we didn't get selected image!")
 
         }
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         // Do any additional setup after loading the view.
     }
@@ -29,6 +31,10 @@ class PhotoIdentificationViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
 
