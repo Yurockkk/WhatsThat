@@ -41,9 +41,6 @@ class PhotoIdentificationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        MBProgressHUD.hide(for: self.view, animated: true)
-    }
     
 
     /*
@@ -64,7 +61,7 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
         self.results = results
         print("found results from Google Vision API")
         print("\(results)")
-
+        
         //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
