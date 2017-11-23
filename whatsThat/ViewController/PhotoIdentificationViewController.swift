@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 
 class PhotoIdentificationViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     var results = [String]()
 
     var selectedImage: UIImage?
@@ -17,6 +18,13 @@ class PhotoIdentificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleSelectedImage()
+        //start progress bar
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        // Do any additional setup after loading the view.
+    }
+    
+    func handleSelectedImage(){
         if selectedImage != nil{
             print("we got selected image!")
             imageView.image = selectedImage
@@ -29,16 +37,8 @@ class PhotoIdentificationViewController: UIViewController {
             GoogleVisionAPIManager.sharedInstance.fetchIdentificationList(baseString: strBase64)
         }else{
             print("we didn't get selected image!")
-
+            
         }
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -60,12 +60,12 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
     func resultFound(results: [String]) {
         self.results = results
         print("found results from Google Vision API")
-        print("\(results)")
+        print("\(self.results)")
         
         //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -73,4 +73,26 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
         print("no results :(")
 
     }
+}
+
+extension PhotoIdentificationViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.results.count)
+        return self.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "visionCell", for: indexPath)
+        
+        cell.textLabel?.text = self.results[indexPath.row]
+        cell.detailTextLabel?.text = "really?"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("user click \(indexPath.row)")
+    }
+    
+    
 }
