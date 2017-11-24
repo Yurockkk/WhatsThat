@@ -7,21 +7,23 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class DetailedDescriptionViewController: UIViewController {
     var selectedDescription: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.selectedDescription)
+//        print(self.selectedDescription)
+        WikipediaAPIManager.sharedInstance.delegate = self
+        if let selectedDescription = selectedDescription{
+            WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedDescription)
+            //start progress bar
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
     /*
     // MARK: - Navigation
 
@@ -32,4 +34,26 @@ class DetailedDescriptionViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailedDescriptionViewController: WikipediaAPIDelegate{
+    func resultFound(results: String) {
+        print("we got wiki data: \(results)")
+        //update tableview data on the main (UI) thread
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            //self.tableView.reloadData()
+        }
+    }
+    
+    func resultNotFound() {
+        //update tableview data on the main (UI) thread
+        print("we didn't get wiki data")
+
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
+    
+    
 }

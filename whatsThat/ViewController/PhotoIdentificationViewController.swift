@@ -79,6 +79,10 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
     
     func resultNotFound() {
         print("no results :(")
+        //update tableview data on the main (UI) thread
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
 
     }
 }
