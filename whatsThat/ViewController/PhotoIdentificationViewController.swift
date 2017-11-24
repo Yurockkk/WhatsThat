@@ -12,6 +12,7 @@ import MBProgressHUD
 class PhotoIdentificationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var results = [String]()
+    var selectedIdentification: String?
 
     var selectedImage: UIImage?
     @IBOutlet weak var imageView: UIImageView!
@@ -43,15 +44,22 @@ class PhotoIdentificationViewController: UIViewController {
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "detailedDescription" {
+            print("in prepare")
+            let destVC = segue.destination as? DetailedDescriptionViewController
+            
+            destVC?.selectedDescription = self.selectedIdentification
+            
+        }
     }
-    */
+ 
 
 }
 
@@ -85,13 +93,14 @@ extension PhotoIdentificationViewController: UITableViewDataSource, UITableViewD
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "visionCell", for: indexPath)
         
         cell.textLabel?.text = self.results[indexPath.row]
-        cell.detailTextLabel?.text = "really?"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("user click \(indexPath.row)")
+        self.selectedIdentification = self.results[indexPath.row]
+        performSegue(withIdentifier: "detailedDescription", sender: self)
     }
     
     

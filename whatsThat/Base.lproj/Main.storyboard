@@ -124,11 +124,27 @@
                     <connections>
                         <outlet property="imageView" destination="ZY0-q4-zlS" id="VbW-M4-b7S"/>
                         <outlet property="tableView" destination="GNR-4W-LBs" id="deB-j5-bEd"/>
+                        <segue destination="dzx-Ez-RDv" kind="show" identifier="detailedDescription" id="vev-Hy-zIF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FH2-7X-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1101.5999999999999" y="-102.09895052473765"/>
+        </scene>
+        <!--Detailed Description View Controller-->
+        <scene sceneID="Uas-Ua-gup">
+            <objects>
+                <viewController id="dzx-Ez-RDv" customClass="DetailedDescriptionViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KJ7-Cj-G0u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="zgm-QJ-DlW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLP-Xf-V22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="-102"/>
         </scene>
     </scenes>
 </document>
