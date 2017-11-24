@@ -12,6 +12,7 @@
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
 		99DBDC841FC52241009BB5CE /* VisonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBDC831FC52241009BB5CE /* VisonResult.swift */; };
 		99E87E571FC7C36500396553 /* DetailedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E561FC7C36500396553 /* DetailedDescriptionViewController.swift */; };
+		99E87E591FC7CD2900396553 /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */; };
 		99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA27901FBA79E0000D5B9A /* AppDelegate.swift */; };
 		99EA27961FBA79E0000D5B9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EA27941FBA79E0000D5B9A /* Main.storyboard */; };
 		99EA27981FBA79E0000D5B9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA27971FBA79E0000D5B9A /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		99DBDC831FC52241009BB5CE /* VisonResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisonResult.swift; sourceTree = "<group>"; };
 		99E87E561FC7C36500396553 /* DetailedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedDescriptionViewController.swift; sourceTree = "<group>"; };
+		99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		99EA278D1FBA79E0000D5B9A /* whatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EA27901FBA79E0000D5B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99EA27951FBA79E0000D5B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */,
+				99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				99E87E571FC7C36500396553 /* DetailedDescriptionViewController.swift in Sources */,
 				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
 				99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */,
+				99E87E591FC7CD2900396553 /* WikipediaAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
