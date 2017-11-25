@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WikipediaAPIDelegate {
-    func resultFound(result: String?)
+    func resultFound(results: [String?])
     func resultNotFound()
 }
 
@@ -76,8 +76,16 @@ class WikipediaAPIManager {
                 self.delegate?.resultNotFound()
                 return
             }
+            
+            guard let id = pageId else{
+                self.delegate?.resultNotFound()
+                return
+            }
+            var dataToPass = [String?]()
+            dataToPass.append(id)
+            dataToPass.append(wikiExtract)
     
-            self.delegate?.resultFound(result: wikiExtract)
+            self.delegate?.resultFound(results: dataToPass)
             
         }
         task.resume()
