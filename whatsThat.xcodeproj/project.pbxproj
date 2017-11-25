@@ -10,7 +10,7 @@
 		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
-		99DBDC841FC52241009BB5CE /* VisonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBDC831FC52241009BB5CE /* VisonResult.swift */; };
+		99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBDC831FC52241009BB5CE /* VisionResult.swift */; };
 		99E87E571FC7C36500396553 /* DetailedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E561FC7C36500396553 /* DetailedDescriptionViewController.swift */; };
 		99E87E591FC7CD2900396553 /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */; };
 		99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA27901FBA79E0000D5B9A /* AppDelegate.swift */; };
@@ -25,7 +25,7 @@
 		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
-		99DBDC831FC52241009BB5CE /* VisonResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisonResult.swift; sourceTree = "<group>"; };
+		99DBDC831FC52241009BB5CE /* VisionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionResult.swift; sourceTree = "<group>"; };
 		99E87E561FC7C36500396553 /* DetailedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedDescriptionViewController.swift; sourceTree = "<group>"; };
 		99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		99EA278D1FBA79E0000D5B9A /* whatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +81,7 @@
 		99DBDC821FC521E3009BB5CE /* models */ = {
 			isa = PBXGroup;
 			children = (
-				99DBDC831FC52241009BB5CE /* VisonResult.swift */,
+				99DBDC831FC52241009BB5CE /* VisionResult.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99DBDC841FC52241009BB5CE /* VisonResult.swift in Sources */,
+				99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */,
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				99E87E571FC7C36500396553 /* DetailedDescriptionViewController.swift in Sources */,

@@ -71,7 +71,7 @@ class GoogleVisionAPIManager{
             var result = [String]()
             for labelAnnotation in responses[0].labelAnnotations {
                 result.append(labelAnnotation.description)
-//                print("description: \(labelAnnotation.description), score: \(labelAnnotation.score)")
+
             }
             self.delegate?.resultFound(results: result)
         })

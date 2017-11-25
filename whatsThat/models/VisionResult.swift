@@ -1,5 +1,5 @@
 //
-//  VisonResult.swift
+//  VisionResult.swift
 //  whatsThat
 //
 //  Created by Yubo on 11/21/17.

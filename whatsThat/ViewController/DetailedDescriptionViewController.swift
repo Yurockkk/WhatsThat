@@ -10,13 +10,15 @@ import UIKit
 import MBProgressHUD
 
 class DetailedDescriptionViewController: UIViewController {
-    var selectedDescription: String?
+    @IBOutlet weak var wikiTextView: UITextView!
+    var wikiExtract: String?
+    var selectedTitle: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(self.selectedDescription)
         WikipediaAPIManager.sharedInstance.delegate = self
-        if let selectedDescription = selectedDescription{
-            WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedDescription)
+        if let selectedTitle = selectedTitle{
+            WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedTitle)
             //start progress bar
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
@@ -37,11 +39,15 @@ class DetailedDescriptionViewController: UIViewController {
 }
 
 extension DetailedDescriptionViewController: WikipediaAPIDelegate{
-    func resultFound(results: String) {
-        print("we got wiki data: \(results)")
+    func resultFound(result: String?) {
+        print("we got wiki data")
         //update tableview data on the main (UI) thread
+        
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
+            if let wikiExtract = result{
+                self.wikiTextView.text = wikiExtract
+            }
             //self.tableView.reloadData()
         }
     }

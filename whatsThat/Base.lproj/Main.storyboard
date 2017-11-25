@@ -138,9 +138,54 @@
                     <view key="view" contentMode="scaleToFill" id="KJ7-Cj-G0u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Phf-p8-FPK">
+                                <rect key="frame" x="8" y="629" width="359" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-cW-e6E">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                        <state key="normal" title="Wiki"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fe-cA-atB">
+                                        <rect key="frame" x="119.5" y="0.0" width="120" height="30"/>
+                                        <state key="normal" title="Tweets"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pap-h2-yo9">
+                                        <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
+                                        <state key="normal" title="Share"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3fe-cA-atB" firstAttribute="centerY" secondItem="Phf-p8-FPK" secondAttribute="centerY" id="9ai-7j-IX8"/>
+                                    <constraint firstItem="gKR-cW-e6E" firstAttribute="centerY" secondItem="Phf-p8-FPK" secondAttribute="centerY" id="GX1-IT-4LQ"/>
+                                    <constraint firstItem="pap-h2-yo9" firstAttribute="centerY" secondItem="Phf-p8-FPK" secondAttribute="centerY" id="Xhr-Qc-pOE"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u6T-K9-hfh">
+                                <rect key="frame" x="8" y="265.5" width="359" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="dQ2-l4-ISK"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Phf-p8-FPK" firstAttribute="leading" secondItem="zgm-QJ-DlW" secondAttribute="leading" constant="8" id="3Ob-Dl-dYi"/>
+                            <constraint firstItem="u6T-K9-hfh" firstAttribute="leading" secondItem="zgm-QJ-DlW" secondAttribute="leading" constant="8" id="QKb-VS-dt9"/>
+                            <constraint firstItem="zgm-QJ-DlW" firstAttribute="trailing" secondItem="Phf-p8-FPK" secondAttribute="trailing" constant="8" id="RR9-QB-IlQ"/>
+                            <constraint firstItem="zgm-QJ-DlW" firstAttribute="bottom" secondItem="Phf-p8-FPK" secondAttribute="bottom" constant="8" id="arc-iw-hTs"/>
+                            <constraint firstItem="u6T-K9-hfh" firstAttribute="centerY" secondItem="zgm-QJ-DlW" secondAttribute="centerY" id="eCZ-ZW-laU"/>
+                            <constraint firstItem="zgm-QJ-DlW" firstAttribute="trailing" secondItem="u6T-K9-hfh" secondAttribute="trailing" constant="8" id="fXK-4b-ATN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zgm-QJ-DlW"/>
                     </view>
+                    <connections>
+                        <outlet property="wikiTextView" destination="u6T-K9-hfh" id="61B-MM-hGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLP-Xf-V22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

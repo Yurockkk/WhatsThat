@@ -55,7 +55,7 @@ class PhotoIdentificationViewController: UIViewController {
             print("in prepare")
             let destVC = segue.destination as? DetailedDescriptionViewController
             
-            destVC?.selectedDescription = self.selectedIdentification
+            destVC?.selectedTitle = self.selectedIdentification
             
         }
     }
