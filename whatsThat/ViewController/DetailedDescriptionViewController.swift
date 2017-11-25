@@ -37,18 +37,23 @@ class DetailedDescriptionViewController: UIViewController {
     }
     
     @IBAction func tweetBtnPressed(_ sender: UIButton) {
-        let tVC = ListTimelineViewController()
-        self.present(tVC, animated: true, completion: nil)
+//        let tVC = ListTimelineViewController()
+        self.performSegue(withIdentifier: "showTwitterList", sender: self)
+//        self.present(tVC, animated: true, completion: nil)
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showTwitterList" {
+            print("in prepare")
+            let destVC = segue.destination as? ListTimelineViewController
+            
+            destVC?.queryText = self.selectedTitle
+            
+        }
     }
-    */
+    
 
 }
 

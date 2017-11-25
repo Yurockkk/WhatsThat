@@ -10,29 +10,21 @@ import UIKit
 import TwitterKit
 
 class ListTimelineViewController: TWTRTimelineViewController {
-
+    var queryText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         print("In ListTimelineViewController")
         
-//        let dataSource = TWTRSearchTimelineDataSource(searchQuery: "puppies filter:media", apiClient: TWTRAPIClient())
-//        dataSource.resultType = "popular"
-        self.dataSource = TWTRUserTimelineDataSource(screenName: "twitterdev", apiClient: TWTRAPIClient())
+        if let queryText = queryText{
+
+            self.dataSource = TWTRSearchTimelineDataSource(searchQuery: queryText, apiClient: TWTRAPIClient())
+            
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-//         self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
-
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
