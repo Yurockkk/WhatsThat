@@ -32,10 +32,14 @@ class DetailedDescriptionViewController: UIViewController {
     }
     @IBAction func wikiBtnPressed(_ sender: UIButton) {
         let url = wikiBaseUrl + "?curid=" + self.wikiId!
-        let svc = SFSafariViewController(url: URL(string: url)!)
-        self.present(svc, animated: true, completion: nil)
+        let sVC = SFSafariViewController(url: URL(string: url)!)
+        self.present(sVC, animated: true, completion: nil)
     }
     
+    @IBAction func tweetBtnPressed(_ sender: UIButton) {
+        let tVC = ListTimelineViewController()
+        self.present(tVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

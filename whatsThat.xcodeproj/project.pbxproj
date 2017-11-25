@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
+		99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */; };
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
 		99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBDC831FC52241009BB5CE /* VisionResult.swift */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		41FFE67D8D94E5B00405BABE /* Pods_whatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
+		99C7CC741FC9D3A500C32FE0 /* Objective-C-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-C-Bridging-Header.h"; sourceTree = "<group>"; };
+		99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTimelineViewController.swift; sourceTree = "<group>"; };
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		99DBDC831FC52241009BB5CE /* VisionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionResult.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 				99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */,
 				99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */,
 				99E87E561FC7C36500396553 /* DetailedDescriptionViewController.swift */,
+				99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -115,6 +119,7 @@
 				99EA27971FBA79E0000D5B9A /* Assets.xcassets */,
 				99EA27991FBA79E0000D5B9A /* LaunchScreen.storyboard */,
 				99EA279C1FBA79E0000D5B9A /* Info.plist */,
+				99C7CC741FC9D3A500C32FE0 /* Objective-C-Bridging-Header.h */,
 			);
 			path = whatsThat;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			files = (
 				99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */,
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
+				99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				99E87E571FC7C36500396553 /* DetailedDescriptionViewController.swift in Sources */,
 				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
