@@ -47,6 +47,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-TL-uOT">
                                         <rect key="frame" x="0.0" y="30" width="62" height="30"/>
                                         <state key="normal" title="Favorites"/>
+                                        <connections>
+                                            <segue destination="RZd-ei-a82" kind="show" id="Lrl-Hf-XwL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -67,6 +70,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkJ-iP-vHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="326" y="-100"/>
+        </scene>
+        <!--Favorite Photos Table View Controller-->
+        <scene sceneID="lAe-N7-FxV">
+            <objects>
+                <tableViewController id="RZd-ei-a82" customClass="FavoritePhotosTableViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mmT-Ie-13Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aAv-eg-7Vt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aAv-eg-7Vt" id="azs-fE-hhP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RZd-ei-a82" id="j2c-iF-Jte"/>
+                            <outlet property="delegate" destination="RZd-ei-a82" id="Hav-kc-iPf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Og-Lw-46Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102" y="664"/>
         </scene>
         <!--Photo Identification View Controller-->
         <scene sceneID="WBG-Nx-PE1">

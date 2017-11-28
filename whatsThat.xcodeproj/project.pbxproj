@@ -12,6 +12,7 @@
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
 		99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBDC831FC52241009BB5CE /* VisionResult.swift */; };
+		99E221A61FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E221A51FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift */; };
 		99E87E571FC7C36500396553 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E561FC7C36500396553 /* PhotoDetailsViewController.swift */; };
 		99E87E591FC7CD2900396553 /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */; };
 		99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EA27901FBA79E0000D5B9A /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
 		99DBDC831FC52241009BB5CE /* VisionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionResult.swift; sourceTree = "<group>"; };
+		99E221A51FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosTableViewController.swift; sourceTree = "<group>"; };
 		99E87E561FC7C36500396553 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		99E87E581FC7CD2900396553 /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		99EA278D1FBA79E0000D5B9A /* whatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */,
 				99E87E561FC7C36500396553 /* PhotoDetailsViewController.swift */,
 				99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */,
+				99E221A51FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */,
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
 				99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */,
+				99E221A61FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				99E87E571FC7C36500396553 /* PhotoDetailsViewController.swift in Sources */,
 				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
