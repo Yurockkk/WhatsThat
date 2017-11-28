@@ -42,6 +42,21 @@ class PhotoDetailsViewController: UIViewController {
 //        self.present(tVC, animated: true, completion: nil)
     }
     
+    @IBAction func shareBtnPressed(_ sender: UIButton) {
+        //create text to share
+        if let titleToShare = self.title {
+            let textToShare = [titleToShare]
+            //create a activityViewController
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            
+            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            
+            //present the activityViewController
+            self.present(activityViewController, animated: true, completion: nil)
+            
+        }
+
+    }
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

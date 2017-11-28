@@ -159,6 +159,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pap-h2-yo9">
                                         <rect key="frame" x="239.5" y="0.0" width="119.5" height="30"/>
                                         <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareBtnPressed:" destination="dzx-Ez-RDv" eventType="touchUpInside" id="QQi-vW-jSr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
