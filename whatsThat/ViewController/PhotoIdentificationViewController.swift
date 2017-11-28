@@ -53,7 +53,7 @@ class PhotoIdentificationViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "detailedDescription" {
             print("in prepare")
-            let destVC = segue.destination as? DetailedDescriptionViewController
+            let destVC = segue.destination as? PhotoDetailsViewController
             
             destVC?.selectedTitle = self.selectedIdentification
             

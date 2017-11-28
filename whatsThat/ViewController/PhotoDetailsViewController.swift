@@ -1,5 +1,5 @@
 //
-//  DetailedDescriptionViewController.swift
+//  PhotoDetailsViewController.swift
 //  whatsThat
 //
 //  Created by Yubo on 11/23/17.
@@ -11,7 +11,7 @@ import MBProgressHUD
 import SafariServices
 
 
-class DetailedDescriptionViewController: UIViewController {
+class PhotoDetailsViewController: UIViewController {
     @IBOutlet weak var wikiTextView: UITextView!
     var wikiExtract: String?
     var selectedTitle: String?
@@ -57,7 +57,7 @@ class DetailedDescriptionViewController: UIViewController {
 
 }
 
-extension DetailedDescriptionViewController: WikipediaAPIDelegate{
+extension PhotoDetailsViewController: WikipediaAPIDelegate{
     func resultFound(results: [String?]) {
         print("we got wiki data")
         
