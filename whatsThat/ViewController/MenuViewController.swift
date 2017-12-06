@@ -31,12 +31,10 @@ class MenuViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("in viewDidLoad")
         
-        //image picker
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
         imagePicker.delegate = self
-        
+
         // Do any additional setup after loading the view.
     }
 
