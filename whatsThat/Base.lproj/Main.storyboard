@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1101.5999999999999" y="-102.09895052473765"/>
         </scene>
-        <!--TEST-->
+        <!--Identification-->
         <scene sceneID="Uas-Ua-gup">
             <objects>
-                <viewController title="TEST" id="dzx-Ez-RDv" customClass="PhotoDetailsViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Identification" id="dzx-Ez-RDv" customClass="PhotoDetailsViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJ7-Cj-G0u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

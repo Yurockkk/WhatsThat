@@ -29,7 +29,19 @@ class PhotoDetailsViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+        
+        //create favorite btn
+        let faveBtn =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(faveBtnPressed(sender:)))
+
+        self.navigationItem.rightBarButtonItem = faveBtn
+       
+        
     }
+    
+    @objc func faveBtnPressed(sender: UIBarButtonItem){
+        print("faveBtnPressed, user wanna fave \(selectedTitle)")
+    }
+    
     @IBAction func wikiBtnPressed(_ sender: UIButton) {
         let url = wikiBaseUrl + "?curid=" + self.wikiId!
         let sVC = SFSafariViewController(url: URL(string: url)!)
