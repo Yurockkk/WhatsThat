@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
 		999DC6DA1FDC571F0084BE0E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */; };
+		999DC6DC1FDC9ACF0084BE0E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */; };
 		99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */; };
 		99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */; };
 		99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D776101FC20FD7009779DD /* PhotoIdentificationViewController.swift */; };
@@ -27,6 +28,7 @@
 		41FFE67D8D94E5B00405BABE /* Pods_whatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		99C7CC741FC9D3A500C32FE0 /* Objective-C-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-C-Bridging-Header.h"; sourceTree = "<group>"; };
 		99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTimelineViewController.swift; sourceTree = "<group>"; };
 		99C9B2DA1FBCF60900286FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				99DBDC831FC52241009BB5CE /* VisionResult.swift */,
+				999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				99E221A61FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				999DC6DA1FDC571F0084BE0E /* PersistanceManager.swift in Sources */,
+				999DC6DC1FDC9ACF0084BE0E /* Favorite.swift in Sources */,
 				99E87E571FC7C36500396553 /* PhotoDetailsViewController.swift in Sources */,
 				99D776111FC20FD7009779DD /* PhotoIdentificationViewController.swift in Sources */,
 				99EA27911FBA79E0000D5B9A /* AppDelegate.swift in Sources */,

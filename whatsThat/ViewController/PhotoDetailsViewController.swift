@@ -42,7 +42,17 @@ class PhotoDetailsViewController: UIViewController {
     }
     
     @objc func faveBtnPressed(sender: UIBarButtonItem){
-        print("faveBtnPressed, user wanna fave \(selectedTitle)")
+        print("faveBtnPressed, user wanna favorite \(selectedTitle)")
+        let timestamp = String(NSDate().timeIntervalSince1970)
+        print(timestamp)
+        if let favoriteTitle = selectedTitle {
+            let favorite = Favorite(title: favoriteTitle, imageName: timestamp)
+            PersistanceManager.sharedInstancec.saveFavorite(favorite)
+        }
+        
+        PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
+            print("title: \(fav.title), imageName: \(fav.imageName)")
+        })
     }
     
     @IBAction func wikiBtnPressed(_ sender: UIButton) {

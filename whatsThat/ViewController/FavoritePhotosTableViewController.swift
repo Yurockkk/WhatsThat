@@ -9,8 +9,9 @@
 import UIKit
 
 class FavoritePhotosTableViewController: UITableViewController {
+    
     var selectedIdentification: String?
-
+    var favorites:[Favorite]!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FavoritePhotosTableViewController: viewDidLoad")
@@ -19,6 +20,7 @@ class FavoritePhotosTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        favorites = PersistanceManager.sharedInstancec.fetchFavorites()
     }
 
 
@@ -31,7 +33,7 @@ class FavoritePhotosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return favorites.count
     }
 
     
@@ -39,6 +41,7 @@ class FavoritePhotosTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = favorites[indexPath.row].title
 
         return cell
     }
