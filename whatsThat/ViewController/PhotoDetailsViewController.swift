@@ -31,9 +31,12 @@ class PhotoDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //create favorite btn
-        let faveBtn =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(faveBtnPressed(sender:)))
 
-        self.navigationItem.rightBarButtonItem = faveBtn
+        let favImage = #imageLiteral(resourceName: "fav")
+        let unFavImage = #imageLiteral(resourceName: "unfav")
+        let favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
+        
+        self.navigationItem.rightBarButtonItem = favBtn
        
         
     }
