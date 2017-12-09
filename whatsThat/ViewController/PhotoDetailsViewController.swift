@@ -15,8 +15,12 @@ class PhotoDetailsViewController: UIViewController {
     @IBOutlet weak var wikiTextView: UITextView!
     var wikiExtract: String?
     var selectedTitle: String?
+    //for favorite feature
+    var selectedImage: UIImage?
     var wikiBaseUrl = "https://en.wikipedia.org/"
     var wikiId:String?
+    let favImage = #imageLiteral(resourceName: "fav")
+    let unFavImage = #imageLiteral(resourceName: "unfav")
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(self.selectedDescription)
@@ -31,11 +35,7 @@ class PhotoDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //create favorite btn
-
-        let favImage = #imageLiteral(resourceName: "fav")
-        let unFavImage = #imageLiteral(resourceName: "unfav")
         let favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
-        
         self.navigationItem.rightBarButtonItem = favBtn
        
         

@@ -14,4 +14,8 @@ class PersistanceManager{
     func saveIdentification(){
         
     }
+    
+    func fetchIdentifications(){
+        
+    }
 }
