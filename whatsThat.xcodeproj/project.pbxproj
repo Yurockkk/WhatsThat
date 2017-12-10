@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9975B5151FDDA11100ADCCC8 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9975B5141FDDA11100ADCCC8 /* FavTableViewCell.swift */; };
 		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
 		999DC6DA1FDC571F0084BE0E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */; };
 		999DC6DC1FDC9ACF0084BE0E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		41FFE67D8D94E5B00405BABE /* Pods_whatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9975B5141FDDA11100ADCCC8 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				99E87E561FC7C36500396553 /* PhotoDetailsViewController.swift */,
 				99C7CC751FC9D88200C32FE0 /* ListTimelineViewController.swift */,
 				99E221A51FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift */,
+				9975B5141FDDA11100ADCCC8 /* FavTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */,
 				99E221A61FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
+				9975B5151FDDA11100ADCCC8 /* FavTableViewCell.swift in Sources */,
 				999DC6DA1FDC571F0084BE0E /* PersistanceManager.swift in Sources */,
 				999DC6DC1FDC9ACF0084BE0E /* Favorite.swift in Sources */,
 				99E87E571FC7C36500396553 /* PhotoDetailsViewController.swift in Sources */,

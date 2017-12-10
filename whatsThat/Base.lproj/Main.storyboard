@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" id="aAv-eg-7Vt">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" id="aAv-eg-7Vt" customClass="FavTableViewCell" customModule="whatsThat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aAv-eg-7Vt" id="azs-fE-hhP">
@@ -109,6 +109,10 @@
                                         <constraint firstItem="wSz-eB-XVW" firstAttribute="centerY" secondItem="azs-fE-hhP" secondAttribute="centerY" id="wdH-32-Dov"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favImageView" destination="wSz-eB-XVW" id="Zgq-a8-gRC"/>
+                                    <outlet property="favTitle" destination="s7q-36-d8n" id="0XZ-CW-dZu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

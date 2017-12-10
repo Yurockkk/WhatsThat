@@ -38,10 +38,12 @@ class FavoritePhotosTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavTableViewCell
+        let favImage = #imageLiteral(resourceName: "fav")
         // Configure the cell...
-        cell.textLabel?.text = favorites[indexPath.row].title
+        cell.favTitle.text = favorites[indexPath.row].title
+        cell.favImageView.image = favImage
 
         return cell
     }
