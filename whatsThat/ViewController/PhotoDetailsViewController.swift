@@ -15,13 +15,20 @@ class PhotoDetailsViewController: UIViewController {
     @IBOutlet weak var wikiTextView: UITextView!
     var wikiExtract: String?
     var selectedTitle: String?
+    var selectedImageFileName: String?
     //for favorite feature
     var selectedImage: UIImage?
     var wikiBaseUrl = "https://en.wikipedia.org/"
     var wikiId:String?
     var isFromFav = false
+    var isFavorite: Bool = false {
+        didSet{
+            updateFavBtnUI()
+        }
+    }
     let favImage = #imageLiteral(resourceName: "fav")
     let unFavImage = #imageLiteral(resourceName: "unfav")
+    var favBtn:UIBarButtonItem?
     let fileManager = FileManager.default
 
     override func viewDidLoad() {
@@ -37,27 +44,58 @@ class PhotoDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //create favorite btn
-        let favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
-        if isFromFav{
-            favBtn.image = favImage
+        favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
+        if isFromFav || isContainsInFavorites() {
+            isFavorite = true
         }
         self.navigationItem.rightBarButtonItem = favBtn
     }
     
     @objc func faveBtnPressed(sender: UIBarButtonItem){
-        
-        let timestamp = String(NSDate().timeIntervalSince1970)
-        print(timestamp)
-        if let favoriteTitle = selectedTitle {
+        if !isFromFav && !isContainsInFavorites(){
+            //we need to run through save favorite process (only first time)
+            isFromFav = true
+            isFavorite = true
+            let timestamp = String(NSDate().timeIntervalSince1970)
+            print(timestamp)
+            self.selectedImageFileName = timestamp
+            if let favoriteTitle = selectedTitle {
+                
+                let favorite = Favorite(title: favoriteTitle, imageName: timestamp)
+                PersistanceManager.sharedInstancec.saveFavorite(favorite)
+                saveImageDocumentDirectory(fileName: timestamp)
+            }
             
-            let favorite = Favorite(title: favoriteTitle, imageName: timestamp)
-            PersistanceManager.sharedInstancec.saveFavorite(favorite)
-            saveImageDocumentDirectory(fileName: timestamp)
+           //debug
+            PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
+            print("title: \(fav.title), imageName: \(fav.imageName)")
+            })
+        }else{
+            //from favorite -> only need to update btn UI
+            isFavorite = !isFavorite
         }
         
-        PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
-            print("title: \(fav.title), imageName: \(fav.imageName)")
-        })
+    }
+    
+    func isContainsInFavorites() -> Bool{
+        let favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+        for(index,fav) in favorites.enumerated(){
+            if fav.title == self.selectedTitle{
+                return true
+            }
+        }
+        return false
+    }
+    
+    func updateFavBtnUI(){
+        DispatchQueue.main.async {
+            if self.isFavorite {
+                self.favBtn?.image = self.favImage
+            }else{
+                self.favBtn?.image = self.unFavImage
+            }
+        }
+        
     }
     
     @IBAction func wikiBtnPressed(_ sender: UIButton) {
@@ -110,6 +148,23 @@ class PhotoDetailsViewController: UIViewController {
             
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("in viewWillDisappear" )
+        if !isFavorite{
+            var favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+            for(index, fav) in favorites.enumerated(){
+                print("fav.title: \(fav.title), self.selectedTitle: \(self.selectedTitle)")
+//                print("fav.imageName: \(fav.imageName), self.selectedImageFileName: \(self.selectedImageFileName)")
+                
+                if(fav.title == self.selectedTitle){
+                    print("unfavorite item")
+                    PersistanceManager.sharedInstancec.removeFavorite(index: index)
+                }
+            }
+        }
+    }
+    
     
 
 }

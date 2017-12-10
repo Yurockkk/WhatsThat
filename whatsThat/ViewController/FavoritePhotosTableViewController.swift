@@ -11,18 +11,15 @@ import UIKit
 class FavoritePhotosTableViewController: UITableViewController {
     
     var selectedIdentification: String?
+    var selectedImageFileName:String?
     var favorites:[Favorite]!
     let fileManager = FileManager.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FavoritePhotosTableViewController: viewDidLoad")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+        
     }
     
     func getImage(imageFileName:String) -> UIImage?{
@@ -31,6 +28,16 @@ class FavoritePhotosTableViewController: UITableViewController {
         print(imagePath)
 
         return UIImage(contentsOfFile: imagePath)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("FavoritePhotosTableViewController: viewWillAppear")
+        self.favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
 
 
@@ -61,6 +68,7 @@ class FavoritePhotosTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("user click \(indexPath.row)")
         self.selectedIdentification = favorites[indexPath.row].title
+        self.selectedImageFileName = favorites[indexPath.row].imageName
         performSegue(withIdentifier: "favToDetailed", sender: self)
     }
 
@@ -70,14 +78,13 @@ class FavoritePhotosTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-      
+        
         if segue.identifier == "favToDetailed" {
             print("in prepare")
             let destVC = segue.destination as? PhotoDetailsViewController
             destVC?.isFromFav = true
             destVC?.selectedTitle = self.selectedIdentification
+            destVC?.selectedImageFileName = self.selectedImageFileName
         }
     }
     
