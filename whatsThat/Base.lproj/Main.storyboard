@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="326" y="-100"/>
         </scene>
-        <!--Favorite Photos Table View Controller-->
+        <!--Favorites-->
         <scene sceneID="lAe-N7-FxV">
             <objects>
-                <tableViewController id="RZd-ei-a82" customClass="FavoritePhotosTableViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Favorites" id="RZd-ei-a82" customClass="FavoritePhotosTableViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="mmT-Ie-13Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +120,9 @@
                             <outlet property="delegate" destination="RZd-ei-a82" id="Hav-kc-iPf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="dzx-Ez-RDv" kind="show" identifier="favToDetailed" id="Hub-pb-WN7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Og-Lw-46Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,4 +290,7 @@
             <point key="canvasLocation" x="2700" y="-100"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hub-pb-WN7"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -60,8 +60,8 @@ class FavoritePhotosTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("user click \(indexPath.row)")
-        self.selectedIdentification = "yolo"
-//        performSegue(withIdentifier: "detailedDescription", sender: self)
+        self.selectedIdentification = favorites[indexPath.row].title
+        performSegue(withIdentifier: "favToDetailed", sender: self)
     }
 
 
@@ -73,12 +73,11 @@ class FavoritePhotosTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
       
-        if segue.identifier == "detailedDescription" {
+        if segue.identifier == "favToDetailed" {
             print("in prepare")
             let destVC = segue.destination as? PhotoDetailsViewController
             
             destVC?.selectedTitle = self.selectedIdentification
-            
         }
     }
     
