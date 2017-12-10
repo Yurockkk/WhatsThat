@@ -12,6 +12,8 @@ class FavoritePhotosTableViewController: UITableViewController {
     
     var selectedIdentification: String?
     var favorites:[Favorite]!
+    let fileManager = FileManager.default
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FavoritePhotosTableViewController: viewDidLoad")
@@ -21,6 +23,14 @@ class FavoritePhotosTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+    }
+    
+    func getImage(imageFileName:String) -> UIImage?{
+        var imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageFileName)
+        imagePath = "\(imagePath).jpg"
+        print(imagePath)
+
+        return UIImage(contentsOfFile: imagePath)
     }
 
 
@@ -35,16 +45,16 @@ class FavoritePhotosTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return favorites.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavTableViewCell
-        let favImage = #imageLiteral(resourceName: "fav")
+        //let defaultFavImage = #imageLiteral(resourceName: "fav")
+        let favImage = getImage(imageFileName: favorites[indexPath.row].imageName)
         // Configure the cell...
         cell.favTitle.text = favorites[indexPath.row].title
         cell.favImageView.image = favImage
-
+        
         return cell
     }
  

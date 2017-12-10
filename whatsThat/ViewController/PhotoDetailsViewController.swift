@@ -21,6 +21,8 @@ class PhotoDetailsViewController: UIViewController {
     var wikiId:String?
     let favImage = #imageLiteral(resourceName: "fav")
     let unFavImage = #imageLiteral(resourceName: "unfav")
+    let fileManager = FileManager.default
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(self.selectedDescription)
@@ -46,8 +48,10 @@ class PhotoDetailsViewController: UIViewController {
         let timestamp = String(NSDate().timeIntervalSince1970)
         print(timestamp)
         if let favoriteTitle = selectedTitle {
+            
             let favorite = Favorite(title: favoriteTitle, imageName: timestamp)
             PersistanceManager.sharedInstancec.saveFavorite(favorite)
+            saveImageDocumentDirectory(fileName: timestamp)
         }
         
         PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
@@ -82,6 +86,18 @@ class PhotoDetailsViewController: UIViewController {
         }
 
     }
+
+    func saveImageDocumentDirectory(fileName:String){
+        var imageFileName = fileName
+        imageFileName = "\(imageFileName).jpg"
+        print("imageFileName: \(imageFileName)")
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageFileName)
+        let image = selectedImage
+        print(paths)
+        let imageData = UIImageJPEGRepresentation(image!, 0.5)
+        fileManager.createFile(atPath: paths, contents: imageData, attributes: nil)
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
