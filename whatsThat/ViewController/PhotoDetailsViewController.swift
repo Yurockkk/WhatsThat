@@ -19,13 +19,13 @@ class PhotoDetailsViewController: UIViewController {
     var selectedImage: UIImage?
     var wikiBaseUrl = "https://en.wikipedia.org/"
     var wikiId:String?
+    var isFromFav = false
     let favImage = #imageLiteral(resourceName: "fav")
     let unFavImage = #imageLiteral(resourceName: "unfav")
     let fileManager = FileManager.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(self.selectedDescription)
         WikipediaAPIManager.sharedInstance.delegate = self
         if let selectedTitle = selectedTitle{
             self.title = selectedTitle
@@ -38,13 +38,14 @@ class PhotoDetailsViewController: UIViewController {
         
         //create favorite btn
         let favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
+        if isFromFav{
+            favBtn.image = favImage
+        }
         self.navigationItem.rightBarButtonItem = favBtn
-       
-        
     }
     
     @objc func faveBtnPressed(sender: UIBarButtonItem){
-        print("faveBtnPressed, user wanna favorite \(selectedTitle)")
+        
         let timestamp = String(NSDate().timeIntervalSince1970)
         print(timestamp)
         if let favoriteTitle = selectedTitle {
