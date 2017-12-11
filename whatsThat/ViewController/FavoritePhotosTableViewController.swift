@@ -82,7 +82,6 @@ class FavoritePhotosTableViewController: UITableViewController {
         if segue.identifier == "favToDetailed" {
             print("in prepare")
             let destVC = segue.destination as? PhotoDetailsViewController
-            destVC?.isFromFav = true
             destVC?.selectedTitle = self.selectedIdentification
             destVC?.selectedImageFileName = self.selectedImageFileName
         }

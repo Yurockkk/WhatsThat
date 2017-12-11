@@ -20,7 +20,6 @@ class PhotoDetailsViewController: UIViewController {
     var selectedImage: UIImage?
     var wikiBaseUrl = "https://en.wikipedia.org/"
     var wikiId:String?
-    var isFromFav = false
     var isFavorite: Bool = false {
         didSet{
             updateFavBtnUI()
@@ -45,16 +44,15 @@ class PhotoDetailsViewController: UIViewController {
         
         //create favorite btn
         favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
-        if isFromFav || isContainsInFavorites() {
+        if isContainsInFavorites() {
             isFavorite = true
         }
         self.navigationItem.rightBarButtonItem = favBtn
     }
     
     @objc func faveBtnPressed(sender: UIBarButtonItem){
-        if !isFromFav && !isContainsInFavorites(){
+        if !isContainsInFavorites(){
             //we need to run through save favorite process (only first time)
-            isFromFav = true
             isFavorite = true
             let timestamp = String(NSDate().timeIntervalSince1970)
             print(timestamp)
