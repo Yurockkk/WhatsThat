@@ -34,10 +34,31 @@ class PhotoDetailsViewController: UIViewController {
         super.viewDidLoad()
         WikipediaAPIManager.sharedInstance.delegate = self
         if let selectedTitle = selectedTitle{
-            self.title = selectedTitle
-            WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedTitle)
             //start progress bar
             MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.title = selectedTitle
+            if(Reachability.isConnectedToNetwork()){
+                //Only call Wikipedia API if we got internet access
+                WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedTitle)
+            }else{
+                print("we don't have network ability")
+                //no internet access, stop spining and disable button click
+                DispatchQueue.main.async {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.wikiBtn.isEnabled = false
+                    self.tweetBtn.isEnabled = false
+                    self.shareBtn.isEnabled = false
+                }
+                let alert = UIAlertController(title: "Please turn on your Wi-Fi or celular data and then try again!", message: nil, preferredStyle: .alert)
+                self.wikiTextView.text = "Please turn on your Wi-Fi or celular data and then try again!"
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
         }
         
         //create favorite btn
@@ -93,16 +114,19 @@ class PhotoDetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var wikiBtn: UIButton!
     @IBAction func wikiBtnPressed(_ sender: UIButton) {
         let url = wikiBaseUrl + "?curid=" + self.wikiId!
         let sVC = SFSafariViewController(url: URL(string: url)!)
         self.present(sVC, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var tweetBtn: UIButton!
     @IBAction func tweetBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "showTwitterList", sender: self)
     }
     
+    @IBOutlet weak var shareBtn: UIButton!
     @IBAction func shareBtnPressed(_ sender: UIButton) {
         //create text to share
         if let titleToShare = self.title {

@@ -254,6 +254,9 @@
                         <viewLayoutGuide key="safeArea" id="zgm-QJ-DlW"/>
                     </view>
                     <connections>
+                        <outlet property="shareBtn" destination="pap-h2-yo9" id="K3r-Fh-r8M"/>
+                        <outlet property="tweetBtn" destination="3fe-cA-atB" id="Qo0-1H-ee6"/>
+                        <outlet property="wikiBtn" destination="gKR-cW-e6E" id="3Gl-Au-lby"/>
                         <outlet property="wikiTextView" destination="u6T-K9-hfh" id="61B-MM-hGy"/>
                         <segue destination="yhv-mB-fqU" kind="show" identifier="showTwitterList" id="zx3-KO-0zK"/>
                     </connections>
