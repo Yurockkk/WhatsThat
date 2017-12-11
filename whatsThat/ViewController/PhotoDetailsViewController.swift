@@ -79,7 +79,7 @@ class PhotoDetailsViewController: UIViewController {
     
     func isContainsInFavorites() -> Bool{
         let favorites = PersistanceManager.sharedInstancec.fetchFavorites()
-        for(index,fav) in favorites.enumerated(){
+        for(_,fav) in favorites.enumerated(){
             if fav.title == self.selectedTitle{
                 return true
             }
@@ -152,9 +152,10 @@ class PhotoDetailsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         print("in viewWillDisappear" )
         if !isFavorite{
-            var favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+            let favorites = PersistanceManager.sharedInstancec.fetchFavorites()
             for(index, fav) in favorites.enumerated(){
-                print("fav.title: \(fav.title), self.selectedTitle: \(self.selectedTitle)")
+                //debug
+//                print("fav.title: \(fav.title), self.selectedTitle: \(self.selectedTitle)")
 //                print("fav.imageName: \(fav.imageName), self.selectedImageFileName: \(self.selectedImageFileName)")
                 
                 if(fav.title == self.selectedTitle){
