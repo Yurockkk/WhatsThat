@@ -40,8 +40,6 @@ class PhotoDetailsViewController: UIViewController {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
-        // Do any additional setup after loading the view.
-        
         //create favorite btn
         favBtn = UIBarButtonItem(image: unFavImage, style: .plain, target: self, action: #selector(faveBtnPressed(sender:)))
         if isContainsInFavorites() {
@@ -69,7 +67,7 @@ class PhotoDetailsViewController: UIViewController {
             print("title: \(fav.title), imageName: \(fav.imageName)")
             })
         }else{
-            //from favorite -> only need to update btn UI
+            //toggle isFavorite
             isFavorite = !isFavorite
         }
         
@@ -93,7 +91,6 @@ class PhotoDetailsViewController: UIViewController {
                 self.favBtn?.image = self.unFavImage
             }
         }
-        
     }
     
     @IBAction func wikiBtnPressed(_ sender: UIButton) {
@@ -103,9 +100,7 @@ class PhotoDetailsViewController: UIViewController {
     }
     
     @IBAction func tweetBtnPressed(_ sender: UIButton) {
-//        let tVC = ListTimelineViewController()
         self.performSegue(withIdentifier: "showTwitterList", sender: self)
-//        self.present(tVC, animated: true, completion: nil)
     }
     
     @IBAction func shareBtnPressed(_ sender: UIButton) {
@@ -114,8 +109,7 @@ class PhotoDetailsViewController: UIViewController {
             let textToShare = [titleToShare]
             //create a activityViewController
             let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            
-            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            activityViewController.popoverPresentationController?.sourceView = self.view
             
             //present the activityViewController
             self.present(activityViewController, animated: true, completion: nil)
@@ -163,9 +157,6 @@ class PhotoDetailsViewController: UIViewController {
             }
         }
     }
-    
-    
-
 }
 
 extension PhotoDetailsViewController: WikipediaAPIDelegate{
@@ -179,7 +170,6 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
                 self.wikiId = id
                 self.wikiTextView.text = wikiExtract
             }
-            //self.tableView.reloadData()
         }
     }
     
