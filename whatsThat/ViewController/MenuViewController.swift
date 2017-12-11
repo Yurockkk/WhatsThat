@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MenuViewController: UIViewController {
     let imagePicker = UIImagePickerController()
@@ -35,46 +36,63 @@ class MenuViewController: UIViewController {
         
         imagePicker.delegate = self
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func openCamera(){
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)){
+            
+            print(" have camera")
+            //check & handle permission status
+            let cameraMediaType = AVMediaType.video
+            let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
+            switch cameraAuthorizationStatus {
+                
+            case .authorized:
+                // Access is granted by user.
+                print("user authorized")
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+                break
+                
+            case .notDetermined:
+                // It is not determined until now.
+                print("user notDetermined")
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+                break
+                
+            case .restricted:
+                // User do not have access to camera.
+                print("user restricted")
+                break
+                
+            case .denied:
+                // User has denied the permission.
+                print("user denied")
+                let alert = UIAlertController(title: "Go to setting and allow us to use camera to capture picture!", message: nil, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+                break
+            }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func openCamera()
-    {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
-        {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-        else
-        {
+        }else{
+            print("dont have camera")
             let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func openGallary()
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        imagePicker.allowsEditing = true
-        self.present(imagePicker, animated: true, completion: nil)
+    func openGallary(){
+        if(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,6 +122,9 @@ extension MenuViewController : UINavigationControllerDelegate, UIImagePickerCont
 
         }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             print("we got originalImage")
+            image = originalImage
+            //perform segue to PhotoIdentificationViewController
+            self.performSegue(withIdentifier: "PhotoIdentificationSegue", sender: self)
 
         }
         picker.dismiss(animated: true)
