@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9950E90A1FDF36F100786852 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950E9091FDF36F100786852 /* Reachability.swift */; };
 		9950E90C1FE0427D00786852 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950E90B1FE0427D00786852 /* MapViewController.swift */; };
+		9950E90E1FE0457B00786852 /* FavoritePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950E90D1FE0457B00786852 /* FavoritePin.swift */; };
 		9975B5151FDDA11100ADCCC8 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9975B5141FDDA11100ADCCC8 /* FavTableViewCell.swift */; };
 		999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */; };
 		999DC6DA1FDC571F0084BE0E /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */; };
@@ -31,6 +32,7 @@
 		41FFE67D8D94E5B00405BABE /* Pods_whatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9950E9091FDF36F100786852 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9950E90B1FE0427D00786852 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9950E90D1FE0457B00786852 /* FavoritePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePin.swift; sourceTree = "<group>"; };
 		9975B5141FDDA11100ADCCC8 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		999085571FC38ECD00D83AAD /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		999DC6D91FDC571F0084BE0E /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				99DBDC831FC52241009BB5CE /* VisionResult.swift */,
 				999DC6DB1FDC9ACF0084BE0E /* Favorite.swift */,
+				9950E90D1FE0457B00786852 /* FavoritePin.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				99DBDC841FC52241009BB5CE /* VisionResult.swift in Sources */,
 				99C9B2DB1FBCF60900286FE6 /* MenuViewController.swift in Sources */,
 				99C7CC761FC9D88200C32FE0 /* ListTimelineViewController.swift in Sources */,
+				9950E90E1FE0457B00786852 /* FavoritePin.swift in Sources */,
 				99E221A61FCDD76600CFA2B8 /* FavoritePhotosTableViewController.swift in Sources */,
 				999085581FC38ECD00D83AAD /* GoogleVisionAPIManager.swift in Sources */,
 				9975B5151FDDA11100ADCCC8 /* FavTableViewCell.swift in Sources */,
