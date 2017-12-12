@@ -29,10 +29,16 @@ class PhotoDetailsViewController: UIViewController {
     let unFavImage = #imageLiteral(resourceName: "unfav")
     var favBtn:UIBarButtonItem?
     let fileManager = FileManager.default
+    let locationFinder = LocationFinder()
+    var imageLon: Double?
+    var imageLat: Double?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         WikipediaAPIManager.sharedInstance.delegate = self
+        locationFinder.delegate = self
+
         if let selectedTitle = selectedTitle{
             //start progress bar
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -40,6 +46,8 @@ class PhotoDetailsViewController: UIViewController {
             if(Reachability.isConnectedToNetwork()){
                 //Only call Wikipedia API if we got internet access
                 WikipediaAPIManager.sharedInstance.fetchWikiData(queryString: selectedTitle)
+                //get location for favorite
+                locationFinder.findLocation()
             }else{
                 print("we don't have network ability")
                 //no internet access, stop spining and disable button click
@@ -77,15 +85,15 @@ class PhotoDetailsViewController: UIViewController {
             print(timestamp)
             self.selectedImageFileName = timestamp
             if let favoriteTitle = selectedTitle {
-                
-                let favorite = Favorite(title: favoriteTitle, imageName: timestamp)
+//                let favorite = Favorite(title: favoriteTitle, imageName: timestamp,lon)
+                let favorite = Favorite(title: favoriteTitle, imageName: timestamp, lon: imageLon, lat: imageLat)
                 PersistanceManager.sharedInstancec.saveFavorite(favorite)
                 saveImageDocumentDirectory(fileName: timestamp)
             }
             
            //debug
             PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
-            print("title: \(fav.title), imageName: \(fav.imageName)")
+                print("title: \(fav.title), imageName: \(fav.imageName), lon: \(fav.lon), lat: \(fav.lat)")
             })
         }else{
             //toggle isFavorite
@@ -205,6 +213,30 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
+}
+
+//adhere to the LocationFinderDelegate protocol
+extension PhotoDetailsViewController: LocationFinderDelegate {
+    func locationFound(latitude: Double, longitude: Double) {
+//        fetchGyms(latitude: latitude, longitude: longitude)
+        print("we get location data, lon: \(longitude), lat: \(latitude)")
+        
+        imageLon = longitude
+        imageLat = latitude
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            //TODO pop up an alert controller with message
+            
+        }
+    }
     
-    
+    func locationNotFound(reason: LocationFinder.FailureReason) {
+        print("we didn't get location data")
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            //TODO pop up an alert controller with message
+            print(reason.rawValue)
+            
+        }
+    }
 }

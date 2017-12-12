@@ -102,6 +102,14 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
     
     func resultNotFound() {
         print("no results :(")
+        //ask user try again later
+        let alert = UIAlertController(title: "We can't find any result at this time, please try again later", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
         //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
