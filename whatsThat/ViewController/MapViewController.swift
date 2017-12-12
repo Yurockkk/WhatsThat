@@ -8,25 +8,34 @@
 
 import UIKit
 import MapKit
+import MBProgressHUD
 
 class MapViewController: UIViewController {
+    
+    var favorites:[Favorite]!
+    let locationFinder = LocationFinder()
+    var currentLon: Double?
+    var currentLat: Double?
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapViewController, viewDidLoad")
-        // Do any additional setup after loading the view.
         mapView.delegate = self
-
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        centerMapOnLocation(location: initialLocation)
+        locationFinder.delegate = self
         
-        // show artwork on map
-        let favPin = FavoritePin(title: "King David Kalakaua",
-                              locationName: "Waikiki Gateway Park",
-                              discipline: "Sculpture",
-                              coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        mapView.addAnnotation(favPin)
+        self.favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+        //debug
+        favorites.forEach({ (fav) in
+            print("title: \(fav.title), imageName: \(fav.imageName), lon: \(fav.lon), lat: \(fav.lat)")
+        })
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        locationFinder.findLocation()
+        
+        // show favPin on map
+//        showFavPinsOnMap()
+
     }
     
     let regionRadius: CLLocationDistance = 1000
@@ -36,16 +45,40 @@ class MapViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("MapViewController, view will appear")
+        self.favorites = PersistanceManager.sharedInstancec.fetchFavorites()
+        DispatchQueue.main.async{
+        self.mapView.removeAnnotations(self.mapView.annotations)
+            self.showFavPinsOnMap()
+            self.mapView.reloadInputViews()
+        }
+        
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showIdentificationFromMap" {
+            print("in prepare")
+            let destVC = segue.destination as? PhotoDetailsViewController
+            let location = sender as! FavoritePin
+            destVC?.selectedTitle = location.title
+            
+        }
     }
-    */
+ 
+    func showFavPinsOnMap(){
+        favorites.forEach { (fav) in
+            if let lon = fav.lon, let lat = fav.lat{
+                let favPin = FavoritePin(title: fav.title, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+                mapView.addAnnotation(favPin)
+            }
+        }
+    }
 
 }
 
@@ -77,6 +110,32 @@ extension MapViewController: MKMapViewDelegate {
         let location = view.annotation as! FavoritePin
         print("location: \(location.title)")
         //TODO:segue to that photoDetailView!!
+        self.performSegue(withIdentifier: "showIdentificationFromMap", sender: location)
     }
     
+}
+
+extension MapViewController: LocationFinderDelegate {
+    func locationFound(latitude: Double, longitude: Double) {
+        //        fetchGyms(latitude: latitude, longitude: longitude)
+        print("we get location data, lon: \(longitude), lat: \(latitude)")
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+        let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
+        centerMapOnLocation(location: initialLocation)
+        showFavPinsOnMap()
+        
+    }
+    
+    func locationNotFound(reason: LocationFinder.FailureReason) {
+        print("we didn't get location data")
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+        let initialLocation = CLLocation(latitude: 38.902041367854324, longitude: -77.053815204948066)
+        centerMapOnLocation(location: initialLocation)
+        showFavPinsOnMap()
+        
+    }
 }

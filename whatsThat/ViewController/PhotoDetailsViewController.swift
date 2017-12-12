@@ -212,6 +212,12 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
+        //error handler
+        let alert = UIAlertController(title: "We can't get result from Wikipedia now, please try again later!", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -223,20 +229,20 @@ extension PhotoDetailsViewController: LocationFinderDelegate {
         
         imageLon = longitude
         imageLat = latitude
-        DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self.view, animated: true)
-            //TODO pop up an alert controller with message
-            
-        }
+//        DispatchQueue.main.async {
+//            MBProgressHUD.hide(for: self.view, animated: true)
+//            //TODO pop up an alert controller with message
+//
+//        }
     }
     
     func locationNotFound(reason: LocationFinder.FailureReason) {
         print("we didn't get location data")
-        DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self.view, animated: true)
-            //TODO pop up an alert controller with message
-            print(reason.rawValue)
-            
-        }
+//        DispatchQueue.main.async {
+//            MBProgressHUD.hide(for: self.view, animated: true)
+//            //TODO pop up an alert controller with message
+//            print(reason.rawValue)
+//            
+//        }
     }
 }
