@@ -123,11 +123,40 @@
                     </tableView>
                     <connections>
                         <segue destination="dzx-Ez-RDv" kind="show" identifier="favToDetailed" id="Hub-pb-WN7"/>
+                        <segue destination="gPG-2n-ALt" kind="show" identifier="showMapSegue" id="KVC-D8-DlR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Og-Lw-46Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102" y="671"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="sN7-IU-8S9">
+            <objects>
+                <viewController id="gPG-2n-ALt" customClass="MapViewController" customModule="whatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egc-xk-psJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="846-2d-bxg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="846-2d-bxg" firstAttribute="top" secondItem="rZj-ik-VCp" secondAttribute="top" id="QFI-Nv-bgS"/>
+                            <constraint firstItem="rZj-ik-VCp" firstAttribute="trailing" secondItem="846-2d-bxg" secondAttribute="trailing" id="SqZ-Tn-Xib"/>
+                            <constraint firstItem="846-2d-bxg" firstAttribute="centerX" secondItem="rZj-ik-VCp" secondAttribute="centerX" id="gLn-7T-sIr"/>
+                            <constraint firstItem="846-2d-bxg" firstAttribute="centerY" secondItem="rZj-ik-VCp" secondAttribute="centerY" id="rsm-xh-dIJ"/>
+                            <constraint firstItem="rZj-ik-VCp" firstAttribute="bottom" secondItem="846-2d-bxg" secondAttribute="bottom" id="x0k-Hn-oQn"/>
+                            <constraint firstItem="846-2d-bxg" firstAttribute="leading" secondItem="rZj-ik-VCp" secondAttribute="leading" id="x1Y-1W-mtD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rZj-ik-VCp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7F-xJ-48J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2078" y="671"/>
         </scene>
         <!--Photo Identification View Controller-->
         <scene sceneID="WBG-Nx-PE1">

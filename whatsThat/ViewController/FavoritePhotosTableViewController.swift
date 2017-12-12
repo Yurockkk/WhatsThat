@@ -29,6 +29,7 @@ class FavoritePhotosTableViewController: UITableViewController {
     
     @objc func mapBtnPressed(sender: UIBarButtonItem){
         print("mapBtnPressed")
+        self.performSegue(withIdentifier: "showMapSegue", sender: self)
     }
     
     func getImage(imageFileName:String) -> UIImage?{
