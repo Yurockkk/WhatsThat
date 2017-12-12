@@ -127,7 +127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Og-Lw-46Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="663.41829085457277"/>
+            <point key="canvasLocation" x="1102" y="671"/>
         </scene>
         <!--Photo Identification View Controller-->
         <scene sceneID="WBG-Nx-PE1">

@@ -14,12 +14,21 @@ class FavoritePhotosTableViewController: UITableViewController {
     var selectedImageFileName:String?
     var favorites:[Favorite]!
     let fileManager = FileManager.default
+    var mapBtn:UIBarButtonItem?
+    let navigationImage:UIImage = #imageLiteral(resourceName: "navigation")
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FavoritePhotosTableViewController: viewDidLoad")
-
         
+        //create map btn
+        mapBtn = UIBarButtonItem(image: navigationImage, style: .plain, target: self, action: #selector(mapBtnPressed(sender:)))
+        self.navigationItem.rightBarButtonItem = mapBtn
+    }
+    
+    @objc func mapBtnPressed(sender: UIBarButtonItem){
+        print("mapBtnPressed")
     }
     
     func getImage(imageFileName:String) -> UIImage?{
