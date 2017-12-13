@@ -25,7 +25,6 @@ class Favorite: NSObject{
         self.imageName = imageName
         self.lon = lon
         self.lat = lat
-        print("in Favorite, lon: \(self.lon), lat: \(self.lat)")
 
     }
     

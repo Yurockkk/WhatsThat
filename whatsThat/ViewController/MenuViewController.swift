@@ -32,7 +32,6 @@ class MenuViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("in viewDidLoad")
         
         imagePicker.delegate = self
 

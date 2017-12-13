@@ -64,15 +64,8 @@ class PhotoIdentificationViewController: UIViewController {
         }
     }
     
-    
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+     
         if segue.identifier == "detailedDescription" {
             print("in prepare")
             let destVC = segue.destination as? PhotoDetailsViewController
@@ -86,7 +79,6 @@ class PhotoIdentificationViewController: UIViewController {
 
 }
 
-//adhere to the NearbyGymDelegate protocol
 extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
     func resultFound(results: [String]) {
         self.results = results
@@ -110,7 +102,6 @@ extension PhotoIdentificationViewController: GoogleVisionAPIDelegate {
         }))
         
         self.present(alert, animated: true, completion: nil)
-        //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
         }

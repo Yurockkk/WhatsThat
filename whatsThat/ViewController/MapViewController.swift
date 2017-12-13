@@ -25,16 +25,9 @@ class MapViewController: UIViewController {
         locationFinder.delegate = self
         
         self.favorites = PersistanceManager.sharedInstancec.fetchFavorites()
-        //debug
-        favorites.forEach({ (fav) in
-            print("title: \(fav.title), imageName: \(fav.imageName), lon: \(fav.lon), lat: \(fav.lat)")
-        })
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         locationFinder.findLocation()
-        
-        // show favPin on map
-//        showFavPinsOnMap()
 
     }
     
@@ -56,11 +49,6 @@ class MapViewController: UIViewController {
         
     }
     
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showIdentificationFromMap" {
             print("in prepare")
@@ -108,8 +96,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! FavoritePin
-        print("location: \(location.title)")
-        //TODO:segue to that photoDetailView!!
+//        print("location: \(location.title)")
         self.performSegue(withIdentifier: "showIdentificationFromMap", sender: location)
     }
     
@@ -117,7 +104,6 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: LocationFinderDelegate {
     func locationFound(latitude: Double, longitude: Double) {
-        //        fetchGyms(latitude: latitude, longitude: longitude)
         print("we get location data, lon: \(longitude), lat: \(latitude)")
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
@@ -133,6 +119,7 @@ extension MapViewController: LocationFinderDelegate {
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
+        //set initialLocation to GWU if we can't get location data
         let initialLocation = CLLocation(latitude: 38.902041367854324, longitude: -77.053815204948066)
         centerMapOnLocation(location: initialLocation)
         showFavPinsOnMap()

@@ -36,8 +36,7 @@ class WikipediaAPIManager {
         request.httpMethod = "GET"
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            //TODO: handle response
-            //            print((response as? HTTPURLResponse)?.statusCode)
+            
             //check for valid response with 200
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
                 self.delegate?.resultNotFound()
@@ -58,13 +57,11 @@ class WikipediaAPIManager {
                 self.delegate?.resultNotFound()
                 return
             }
-//            print(queryJsonObject)
             
             guard let pagesObject = queryJsonObject["pages"] as? [String:Any] else{
                 self.delegate?.resultNotFound()
                 return
             }
-//            print(pagesObject)
             var pageId:String?
             var finalObj:[String:Any]?
             for (key,value) in pagesObject{

@@ -91,10 +91,6 @@ class PhotoDetailsViewController: UIViewController {
                 saveImageDocumentDirectory(fileName: timestamp)
             }
             
-           //debug
-            PersistanceManager.sharedInstancec.fetchFavorites().forEach({ (fav) in
-                print("title: \(fav.title), imageName: \(fav.imageName), lon: \(fav.lon), lat: \(fav.lat)")
-            })
         }else{
             //toggle isFavorite
             isFavorite = !isFavorite
@@ -178,9 +174,6 @@ class PhotoDetailsViewController: UIViewController {
         if !isFavorite{
             let favorites = PersistanceManager.sharedInstancec.fetchFavorites()
             for(index, fav) in favorites.enumerated(){
-                //debug
-//                print("fav.title: \(fav.title), self.selectedTitle: \(self.selectedTitle)")
-//                print("fav.imageName: \(fav.imageName), self.selectedImageFileName: \(self.selectedImageFileName)")
                 
                 if(fav.title == self.selectedTitle){
                     print("unfavorite item")
@@ -195,7 +188,6 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
     func resultFound(results: [String?]) {
         print("we got wiki data")
         
-        //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
             if let id = results[0],let wikiExtract = results[1]{
@@ -206,7 +198,6 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
     }
     
     func resultNotFound() {
-        //update tableview data on the main (UI) thread
         print("we didn't get wiki data")
 
         DispatchQueue.main.async {
@@ -224,25 +215,12 @@ extension PhotoDetailsViewController: WikipediaAPIDelegate{
 //adhere to the LocationFinderDelegate protocol
 extension PhotoDetailsViewController: LocationFinderDelegate {
     func locationFound(latitude: Double, longitude: Double) {
-//        fetchGyms(latitude: latitude, longitude: longitude)
         print("we get location data, lon: \(longitude), lat: \(latitude)")
-        
         imageLon = longitude
         imageLat = latitude
-//        DispatchQueue.main.async {
-//            MBProgressHUD.hide(for: self.view, animated: true)
-//            //TODO pop up an alert controller with message
-//
-//        }
     }
     
     func locationNotFound(reason: LocationFinder.FailureReason) {
         print("we didn't get location data")
-//        DispatchQueue.main.async {
-//            MBProgressHUD.hide(for: self.view, animated: true)
-//            //TODO pop up an alert controller with message
-//            print(reason.rawValue)
-//            
-//        }
     }
 }
